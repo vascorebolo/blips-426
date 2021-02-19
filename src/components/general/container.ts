@@ -17,6 +17,19 @@ const Container = styled.div<IContainerProps>`
   & + div {
     margin-top: 0.8vw;
   }
+
+  &.main {
+    max-width: 800px;
+  }
+
+  &.inverted {
+    flex-direction: row;
+
+    div + div {
+      margin-left: 0.8vw;
+      margin-top: 0;
+    }
+  }
 `
 
 export default Container
