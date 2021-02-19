@@ -1,0 +1,44 @@
+$main: #5cc05f;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  min-height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  font-size: 1vw;
+}
+
+body {
+  background: #000;
+  color: $main;
+  text-shadow: 0 0 10px $main,
+  0 0 0.5px $main,
+  0 0 1px darken($main, 10%),
+  0 0 1.5px darken($main, 15%),
+  0 0 2px darken($main, 20%);
+  font-family: 'Press Start 2P', cursive;
+  padding: 0.5vw;
+  flex: 1;
+  display: flex;
+
+  > div {
+    flex: 1;
+  }
+}
+
+p {
+  font-size: 1.5vw;
+  line-height: 200%;
+  letter-spacing: 200%;
+
+  @media screen and (max-width: 635px) {
+    font-size: 14px;
+  }
+}
