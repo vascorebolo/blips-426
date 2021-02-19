@@ -20,10 +20,12 @@ const Container = styled.div<IContainerProps>`
 
   &.main {
     max-width: 800px;
+    min-width: 70%;
   }
 
   &.inverted {
     flex-direction: row;
+    justify-content: space-between;
 
     div + div {
       margin-left: 0.8vw;

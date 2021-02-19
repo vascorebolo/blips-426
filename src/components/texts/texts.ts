@@ -5,6 +5,11 @@ interface IH1Props {
 }
 
 export const H1 = styled.h1<IH1Props>`
-  font-size: 2vw;
+  font-size: 5vw;
   text-align: ${props => props.align ? props.align : 'left'};
+`
+
+export const P = styled.p`
+  font-size: 12px;
+  text-align: center;
 `

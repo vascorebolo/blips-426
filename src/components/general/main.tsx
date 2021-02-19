@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import Container from './container'
-import { H1 } from '../texts/header'
+import { H1, P } from '../texts/texts'
 import Button from '../ctas/button'
 import Blips from '../../constants/blips'
 
 const NumberShow = styled.p`
   display: block;
-  font-size: 14vw;
+  font-size: 10vw;
   text-align: center;
 `
 
@@ -49,31 +49,31 @@ const Main = () => {
         <Container className="inverted">
           <Container>
             <NumberShow>{ blips.length }</NumberShow>
-            <p>blips in stock</p>
+            <P>blips pool</P>
           </Container>
           <Container>
             <NumberShow>{ addedBlips.length }</NumberShow>
-            <p>blips added</p>
+            <P>blips added</P>
           </Container>
         </Container>
         <Container>
           { blip !== 0 && (
             <>
               <NumberShow>{ blip }</NumberShow>
-              <p>Last revealed blip.</p>
+              <P>last blip revealed</P>
             </>
           )}
 
           { blip === 0 && (
             <>
               <NumberShow>-</NumberShow>
-              <p>no blips revealed</p>
+              <P>no blips revealed</P>
             </>
           )}
         </Container>
         <Container>
-          <Button text="Add Blip" callback={addBlip} />
-          <Button text="Reveal Blip" callback={revealBlip} />
+          <Button text="Add a Blip" callback={addBlip} disabled={blips.length === 0} />
+          <Button text="Reveal a Blip" callback={revealBlip} disabled={addedBlips.length === 0} />
         </Container>
       </Container>
   )

@@ -5,6 +5,7 @@ import colors from '../../constants/colors'
 type ButtonProps = {
   callback?: () => void,
   text: string,
+  disabled?: boolean,
 }
 
 const ButtonStyled = styled.button`
@@ -17,6 +18,7 @@ const ButtonStyled = styled.button`
   font-family: 'Press Start 2P', cursive;
   height: 50px;
   text-shadow: 0 0 10px ${colors.main}, 0 0 0.5px ${colors.main}, 0 0 1px ${colors.main}, 0 0 1.5px ${colors.main}, 0 0 2px ${colors.main};
+  text-transform: uppercase;
 
   &:focus,
   &:active {
@@ -26,15 +28,19 @@ const ButtonStyled = styled.button`
   & + button {
     margin-top: 0.8vw;
   }
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `
 
-const Button = ({callback, text}: ButtonProps) => {
+const Button = ({callback, text, disabled = false}: ButtonProps) => {
   const handleClick = () => {
     callback && callback();
   }
 
   return (
-    <ButtonStyled onClick={handleClick}>
+    <ButtonStyled onClick={handleClick} disabled={disabled}>
       { text }
     </ButtonStyled>
   )
