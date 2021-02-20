@@ -10,7 +10,12 @@ import Blips from '../../constants/blips'
 const NumberShow = styled.p`
   display: block;
   font-size: 10vw;
+  line-height: 105%;
   text-align: center;
+
+  & + p {
+    margin-top: 40px;
+  }
 `
 
 const Main = () => {
@@ -42,21 +47,23 @@ const Main = () => {
   }
 
   return (
-    <Container className="main">
-        <Container sizing="10%">
-          <H1 align="center">▮ BLIPS-426 ▮</H1>
+    <Container className="main" sizing="100%">
+        <Container className="flex no-grow">
+          <H1 align="center">BLIPS-426</H1>
         </Container>
+
         <Container className="inverted">
-          <Container>
+          <Container className="flex jcenter">
             <NumberShow>{ blips.length }</NumberShow>
             <P>blips pool</P>
           </Container>
-          <Container>
+          <Container className="flex jcenter">
             <NumberShow>{ addedBlips.length }</NumberShow>
             <P>blips added</P>
           </Container>
         </Container>
-        <Container>
+
+        <Container className="flex jcenter">
           { blip !== 0 && (
             <>
               <NumberShow>{ blip }</NumberShow>
@@ -66,12 +73,13 @@ const Main = () => {
 
           { blip === 0 && (
             <>
-              <NumberShow>-</NumberShow>
+              <NumberShow>_</NumberShow>
               <P>no blips revealed</P>
             </>
           )}
         </Container>
-        <Container>
+
+        <Container className="no-border flex jend">
           <Button text="Add a Blip" callback={addBlip} disabled={blips.length === 0} />
           <Button text="Reveal a Blip" callback={revealBlip} disabled={addedBlips.length === 0} />
         </Container>

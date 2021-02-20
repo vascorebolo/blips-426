@@ -19,8 +19,8 @@ const Container = styled.div<IContainerProps>`
   }
 
   &.main {
-    max-width: 800px;
     min-width: 70%;
+    min-height: 100%;
   }
 
   &.inverted {
@@ -31,6 +31,17 @@ const Container = styled.div<IContainerProps>`
       margin-left: 0.8vw;
       margin-top: 0;
     }
+  }
+
+  &.secondary {
+    background-color: ${colors.main};
+    color: ${colors.black};
+  }
+
+  &.no-border {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
   }
 `
 

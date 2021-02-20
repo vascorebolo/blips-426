@@ -22,6 +22,7 @@ body {
   display: flex;
   flex: 1;
   font-family: 'Press Start 2P', cursive;
+  font-smooth: never;
   justify-content: center;
   padding: 0.5vw;
   text-shadow: 0 0 10px $main, 0 0 0.5px $main, 0 0 1px darken($main, 10%), 0 0 1.5px darken($main, 15%), 0 0 2px darken($main, 20%);
@@ -42,6 +43,27 @@ p {
 .app {
   align-items: center;
   display: flex;
+  height: 100%;
   justify-content: center;
   width: 100%;
+}
+
+.flex {
+  display: flex;
+
+  &.center {
+    align-items: center;
+  }
+
+  &.jcenter {
+    justify-content: center;;
+  }
+
+  &.no-grow {
+    flex-grow: 0;
+  }
+
+  &.jend {
+    justify-content: flex-end;
+  }
 }
