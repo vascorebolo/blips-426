@@ -6,6 +6,7 @@ type ButtonProps = {
   callback?: () => void,
   text: string,
   disabled?: boolean,
+  inverse?: boolean,
 }
 
 const ButtonStyled = styled.button`
@@ -15,11 +16,10 @@ const ButtonStyled = styled.button`
   box-shadow: inset 0 0 7px ${colors.main};
   color: ${colors.main};
   cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Nostromo Regular', cursive;
   height: 50px;
-  text-shadow: 0 0 10px ${colors.main}, 0 0 0.5px ${colors.main}, 0 0 1px ${colors.main}, 0 0 1.5px ${colors.main}, 0 0 2px ${colors.main};
+  text-shadow: 0 0 10px ${colors.main}, 0 0 0.5px ${colors.main};
   text-transform: uppercase;
-
   &:focus,
   &:active {
     outline: 0;
@@ -32,15 +32,26 @@ const ButtonStyled = styled.button`
   &:disabled {
     opacity: 0.5;
   }
+
+  &.inverse {
+    background-color: ${colors.main};
+    box-shadow: 0 0 7px ${colors.main};
+    color: ${colors.black};
+    text-shadow: 0 0 10px ${colors.black}, 0 0 0.5px ${colors.black}, 0 0 1px ${colors.black}, 0 0 1.5px ${colors.black}, 0 0 2px ${colors.black};
+  }
 `
 
-const Button = ({callback, text, disabled = false}: ButtonProps) => {
+const Button = ({callback, text, disabled = false, inverse = false}: ButtonProps) => {
   const handleClick = () => {
     callback && callback();
   }
 
   return (
-    <ButtonStyled onClick={handleClick} disabled={disabled}>
+    <ButtonStyled
+      onClick={handleClick}
+      disabled={disabled}
+      className={`${inverse ? 'inverse' : ''}`}
+    >
       { text }
     </ButtonStyled>
   )

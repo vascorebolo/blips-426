@@ -6,15 +6,25 @@ import Container from './container'
 import { H1, P } from '../texts/texts'
 import Button from '../ctas/button'
 import Blips from '../../constants/blips'
+import colors from '../../constants/colors'
 
 const NumberShow = styled.p`
   display: block;
-  font-size: 10vw;
+  font-family: 'Press Start 2P', cursive;
+  font-size: calc(40px + 1.5vw);
   line-height: 105%;
+  padding: 0 20px;
   text-align: center;
 
   & + p {
-    margin-top: 40px;
+    margin-top: 2vh;
+  }
+
+  &.hidden {
+    background-color: ${colors.main};
+    box-shadow: 0 0 7px ${colors.main};
+    color: transparent;
+    text-shadow: none;
   }
 `
 
@@ -22,6 +32,7 @@ const Main = () => {
   const [blips, setBlips] = useState(Blips)
   const [addedBlips, setAddedBlips] = useState([] as number[])
   const [blip, setBlip] = useState(0)
+  const [isHidden, setIsHidden] = useState(false)
 
   useEffect(() => {}, [])
 
@@ -35,53 +46,72 @@ const Main = () => {
     }
   }
 
-  const revealBlip = () => {
+  const revealBlip = (reveal: boolean = true) => {
     if (addedBlips.length) {
+      reveal && setIsHidden(true);
       const index = Math.floor(Math.random() * addedBlips.length)
-
+      reveal && setBlip(addedBlips[index])
       setBlips([...blips, addedBlips[index]])
-      setBlip(addedBlips[index])
       addedBlips.splice(index, 1)
       setAddedBlips(addedBlips)
+      reveal && setTimeout(() => {
+        setIsHidden(false)
+      }, 500)
     }
+  }
+
+  const removeBlip = () => {
+    revealBlip(false)
   }
 
   return (
     <Container className="main" sizing="100%">
         <Container className="flex no-grow">
-          <H1 align="center">BLIPS-426</H1>
+          <H1 className="title" align="center">
+██████&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██████&nbsp;&nbsp;███████&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;██████&nbsp;&nbsp;&nbsp;██████&nbsp;&nbsp;<br/>
+██&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+██████&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██████&nbsp;&nbsp;███████&nbsp;█████&nbsp;███████&nbsp;&nbsp;█████&nbsp;&nbsp;███████&nbsp;&nbsp;<br/>
+██&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;<br/>
+██████&nbsp;&nbsp;███████&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;███████&nbsp;&nbsp;██████&nbsp;&nbsp;<br/>
+<br/>
+          </H1>
         </Container>
 
         <Container className="inverted">
           <Container className="flex jcenter">
             <NumberShow>{ blips.length }</NumberShow>
-            <P>blips pool</P>
+            <P>blip token pool</P>
           </Container>
           <Container className="flex jcenter">
             <NumberShow>{ addedBlips.length }</NumberShow>
-            <P>blips added</P>
+            <P>blips spawned</P>
           </Container>
         </Container>
 
         <Container className="flex jcenter">
           { blip !== 0 && (
             <>
-              <NumberShow>{ blip }</NumberShow>
-              <P>last blip revealed</P>
+              <NumberShow className={`${isHidden ? 'hidden' : ''}`}>{ blip }</NumberShow>
+              <P>last blip spotted</P>
             </>
           )}
 
           { blip === 0 && (
             <>
-              <NumberShow>_</NumberShow>
-              <P>no blips revealed</P>
+              <NumberShow>-</NumberShow>
+              <P>no blips spotted</P>
             </>
           )}
         </Container>
 
+        <Container className="flex no-grow">
+          <P className="small">SYSTEM 4 · USS SULACO · 2179</P>
+        </Container>
+
         <Container className="no-border flex jend">
-          <Button text="Add a Blip" callback={addBlip} disabled={blips.length === 0} />
-          <Button text="Reveal a Blip" callback={revealBlip} disabled={addedBlips.length === 0} />
+          <Button text="Remove Blip (no spot)" disabled={addedBlips.length === 0} callback={removeBlip}></Button>
+          <Button text="spawn blip" callback={addBlip} disabled={blips.length === 0} />
+          <Button text="spot blip" callback={revealBlip} disabled={addedBlips.length === 0} inverse />
         </Container>
       </Container>
   )
