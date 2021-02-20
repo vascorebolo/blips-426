@@ -104,7 +104,7 @@ const Main = () => {
           )}
         </Container>
 
-        <Container className="flex no-grow">
+        <Container className="no-border flex no-grow">
           <P className="small">SYSTEM 4 · USS SULACO · 2179</P>
         </Container>
 
