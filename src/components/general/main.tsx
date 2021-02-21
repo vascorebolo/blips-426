@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import Container from './container'
+import ButtonsContainer from './buttons.container'
 import { H1, P } from '../texts/texts'
 import Button from '../ctas/button'
 import Blips from '../../constants/blips'
@@ -60,6 +61,18 @@ const Main = () => {
     }
   }
 
+  const addAndRevealBlip = () => {
+    if (blips.length) {
+      const index = Math.floor(Math.random() * blips.length)
+
+      setIsHidden(true);
+      setBlip(blips[index]);
+      setTimeout(() => {
+        setIsHidden(false);
+      }, 500);
+    }
+  }
+
   const removeBlip = () => {
     revealBlip(false)
   }
@@ -110,7 +123,10 @@ const Main = () => {
 
         <Container className="no-border flex jend">
           <Button text="Remove Blip (no spot)" disabled={addedBlips.length === 0} callback={removeBlip}></Button>
-          <Button text="spawn blip" callback={addBlip} disabled={blips.length === 0} />
+          <ButtonsContainer>
+            <Button text="spawn & spot blip" callback={addAndRevealBlip} disabled={blips.length === 0} />
+            <Button text="spawn blip" callback={addBlip} disabled={blips.length === 0} />
+          </ButtonsContainer>
           <Button text="spot blip" callback={revealBlip} disabled={addedBlips.length === 0} inverse />
         </Container>
       </Container>
