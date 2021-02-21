@@ -7,27 +7,7 @@ import ButtonsContainer from './buttons.container'
 import { H1, P } from '../texts/texts'
 import Button from '../ctas/button'
 import Blips from '../../constants/blips'
-import colors from '../../constants/colors'
-
-const NumberShow = styled.p`
-  display: block;
-  font-family: 'Press Start 2P', cursive;
-  font-size: calc(40px + 1.5vw);
-  line-height: 105%;
-  padding: 0 20px;
-  text-align: center;
-
-  & + p {
-    margin-top: 2vh;
-  }
-
-  &.hidden {
-    background-color: ${colors.main};
-    box-shadow: 0 0 7px ${colors.main};
-    color: transparent;
-    text-shadow: none;
-  }
-`
+import NumberShow from './number.show'
 
 const Main = () => {
   const [blips, setBlips] = useState(Blips)
@@ -104,14 +84,14 @@ const Main = () => {
         <Container className="flex jcenter">
           { blip !== 0 && (
             <>
-              <NumberShow className={`${isHidden ? 'hidden' : ''}`}>{ blip }</NumberShow>
+              <NumberShow className={`bigger ${isHidden ? 'hidden' : ''}`}>{ blip }</NumberShow>
               <P>last blip spotted</P>
             </>
           )}
 
           { blip === 0 && (
             <>
-              <NumberShow>-</NumberShow>
+              <NumberShow className="bigger">-</NumberShow>
               <P>no blips spotted</P>
             </>
           )}
