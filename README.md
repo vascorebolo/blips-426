@@ -1,6 +1,13 @@
-# blip-426
+██████  ██      ██ ██████  ███████       ██   ██ ██████   ██████
+██   ██ ██      ██ ██   ██ ██            ██   ██      ██ ██
+██████  ██      ██ ██████  ███████ █████ ███████  █████  ███████
+██   ██ ██      ██ ██           ██            ██ ██      ██    ██
+██████  ███████ ██ ██      ███████            ██ ███████  ██████
 
-Empty project.
+
+Project to assist on spawning, spotting and removing blips in the
+Aliens Another Glorious Day in the Corps boardgame.
+It can be seen [here](https://blips.vascorebolo.com/).
 
 ## Building and running on localhost
 
