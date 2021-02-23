@@ -1,9 +1,10 @@
-██████&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;██████&nbsp;███████&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;██&nbsp;██████&nbsp;&nbsp;██████<br/>
-██&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;██<br/>
-██████&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;██████&nbsp;███████&nbsp;█████&nbsp;███████&nbsp;█████&nbsp;███████<br/>
-██&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;██<br/>
-██████&nbsp;███████&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;███████&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;███████&nbsp;██████<br/>
+██████  ██      ██ ██████  ███████       ██   ██ ██████   ██████<br/>
+██   ██ ██      ██ ██   ██ ██            ██   ██      ██ ██<br/>
+██████  ██      ██ ██████  ███████ █████ ███████  █████  ███████<br/>
+██   ██ ██      ██ ██           ██            ██ ██      ██    ██<br/>
+██████  ███████ ██ ██      ███████            ██ ███████  ██████<br/>
 <br/>
+
 
 Project to assist on spawning, spotting and removing blips in the
 Aliens Another Glorious Day in the Corps boardgame.
