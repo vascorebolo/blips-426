@@ -1,13 +1,13 @@
 $main: #479BC3;
 
 @font-face {
-  font-family: 'Nostromo Regular';
-  src: url('NostromoRegular-Medium.eot');
-  src: url('NostromoRegular-Medium.eot?#iefix') format('embedded-opentype'),
-      url('NostromoRegular-Medium.woff2') format('woff2'),
-      url('NostromoRegular-Medium.woff') format('woff'),
-      url('NostromoRegular-Medium.ttf') format('truetype'),
-      url('NostromoRegular-Medium.svg#NostromoRegular-Medium') format('svg');
+  font-family: 'nostromo';
+  src: url('fonts/NostromoRegular-Medium.eot');
+  src: url('fonts/NostromoRegular-Medium.eot?#iefix') format('embedded-opentype'),
+      url('fonts/NostromoRegular-Medium.woff2') format('woff2'),
+      url('fonts/NostromoRegular-Medium.woff') format('woff'),
+      url('fonts/NostromoRegular-Medium.ttf') format('truetype'),
+      url('fonts/NostromoRegular-Medium.svg#NostromoRegular-Medium') format('svg');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -34,7 +34,7 @@ body {
   color: $main;
   display: flex;
   flex: 1;
-  font-family: 'Nostromo Regular', cursive;
+  font-family: 'nostromo', arial;
   font-smooth: never;
   justify-content: center;
   padding: 0.5vw;

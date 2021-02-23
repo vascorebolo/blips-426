@@ -16,7 +16,7 @@ const ButtonStyled = styled.button`
   box-shadow: inset 0 0 7px ${colors.main};
   color: ${colors.main};
   cursor: pointer;
-  font-family: 'Nostromo Regular', cursive;
+  font-family: 'nostromo', cursive;
   height: 50px;
   text-shadow: 0 0 10px ${colors.main}, 0 0 0.5px ${colors.main};
   text-transform: uppercase;
